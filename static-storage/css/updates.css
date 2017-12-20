@@ -1,0 +1,20 @@
+/* Title:   Updates Style File Author:  http://themeforest.net/user/soaptheme  */
+/* Version 2.6.2 (9/7/2015) */
+@media (max-width: 767px) { #booking .booking-info .info { clear: both; } }
+@media (max-width: 480px) { #booking .booking-info { padding-top: 20px; }
+  #booking .booking-info div.date { float: none; }
+  #profile .personal-details figure { width: auto; }
+  #booking .booking-info .info { float: none; width: auto; margin-top: 10px; }
+  #booking .booking-info .status { float: none; margin-bottom: 15px; } }
+/* Version 2.6.3 */
+.dashboard.style1 #content, .dashboard.style2 #content { -webkit-backface-visibility: visible; }
+
+.search-box-wrapper.style1 .search-box:after { content: ""; display: table; clear: both; }
+
+.search-box-wrapper.style1 .search-box > ul.search-tabs li > a:hover i { -webkit-animation: none; }
+
+.chaser .logo { margin-top: 0; font-size: inherit; }
+
+.chaser .logo a { height: 48px; line-height: 48px; background-position: left center; }
+
+.chaser .logo img { display: inline-block; vertical-align: middle; max-height: 100%; }

@@ -1,0 +1,20 @@
+/*
+ * Title:   Travelo - Travel, Tour Booking HTML5 Template - Style for Internet Explorer
+ * Author:  http://themeforest.net/user/soaptheme
+ */
+
+.no-borderradius {
+  #header .topnav .ribbon > ul,
+  #main_menu ul.menu > li > ul,
+  .honeymoon > .container
+  { behavior: url(PIE.htc); }
+}
+
+.ie8 {
+  input.input-text, select, textarea, span.custom-select { padding-top: 7px; padding-bottom: 7px; }
+}
+.ie {
+  #booking .filter-section label.radio:before {
+    line-height: 15px;
+  }
+}

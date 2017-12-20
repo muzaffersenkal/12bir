@@ -1,0 +1,174 @@
+/*
+ * Title:   Travelo - Travel, Tour Booking HTML5 Template - SCSS Variables for style customization
+ * Author:  http://themeforest.net/user/soaptheme
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Table of contents]
+
+1. Global
+2. Skin colors
+3. SKin logos
+4. Important colors & Default Skin
+5. Skin1
+6. Skin2
+7. Skin3
+8. Skin4
+9. Skin5
+10. Skin6
+11. Skin7
+12. Skin8
+13. Skin9
+14. Skin10
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* 1. Global */
+$font-stack:    'Lato', Arial, Helvetica, sans-serif;
+$primary-color: #838383;
+$heading-color: #2d3e52;
+$button-color: #98ce44;
+
+/* 2. Skin colors */
+$light-blue-color: #01b7f2;
+$purple-color: #9f60b5;
+$orange-color: #ff6000;
+$light-orange-color: #f5a77d;
+$sea-blue-color: #0ab596;
+$sky-blue-color: #6dace6;
+$dark-orange-color: #ff3e3e;
+$dark-blue-color: #194eb0;
+$light-yellow-color: #ffd200;
+$red-color: #e44049;
+
+/* 3. Skin logos */
+$default-logo: "../images/logo.png";
+$skin1-logo: "../images/logo/skin1-logo.png";
+$skin2-logo: "../images/logo/skin2-logo.png";
+$skin3-logo: "../images/logo/skin3-logo.png";
+$skin4-logo: "../images/logo/skin4-logo.png";
+$skin5-logo: "../images/logo/skin5-logo.png";
+$skin6-logo: "../images/logo/skin6-logo.png";
+$skin7-logo: "../images/logo/skin7-logo.png";
+$skin8-logo: "../images/logo/skin8-logo.png";
+$skin9-logo: "../images/logo/skin9-logo.png";
+$skin10-logo: "../images/logo/skin10-logo.png";
+
+/* 4. Important colors */
+$yellow-theme-color: #fdb714;
+$dark-yellow-theme-color: #efa300;
+$green-theme-color: #98ce44;
+$blue-theme-color: #01b7f2;
+$dark-blue-theme-color: #2d3e52;
+$red-theme-color: #e01a33;
+$light-blue-theme-color: #7c9abd;
+
+/* Default Skin */
+$skin-logo: $default-logo;
+$skin-bg-color: $light-blue-color;
+$skin-active-color: $light-blue-color;
+$skin-select-color: $yellow-theme-color;
+$skin-hover-color: #40cbf8;
+$skin-mobile-menu-color: #04afe7;
+$skin-light-color: $light-blue-theme-color;
+$skin-dark-color: $dark-blue-theme-color;
+
+/* 5. Skin1 (Light Blue) */
+/*$skin-logo: $skin1-logo;
+$skin-bg-color: $light-blue-color;
+$skin-active-color: $light-blue-color;
+$skin-select-color: $yellow-theme-color;
+$skin-hover-color: #40cbf8;
+$skin-mobile-menu-color: #04afe7;
+$skin-light-color: $light-blue-theme-color;
+$skin-dark-color: $dark-blue-theme-color;*/
+
+/* 6. Skin2 (Red) */
+/*$skin-logo: $skin2-logo;
+$skin-bg-color: $red-color;
+$skin-active-color: $red-color;
+$skin-select-color: #e6c687;
+$skin-hover-color: #fc989e;
+$skin-mobile-menu-color: $red-theme-color;
+$skin-light-color: #fc989e;
+$skin-dark-color: #a70b14;*/
+
+/* 7. Skin3 (Orange) */
+/*$skin-logo: $skin3-logo;
+$skin-bg-color: $orange-color;
+$skin-active-color: #12a0c3;
+$skin-select-color: $orange-color;
+$skin-hover-color: #fb9e66;
+$skin-mobile-menu-color: #fe6f19;
+$skin-light-color: #fb9e66;
+$skin-dark-color: #db5200;*/
+
+/* 8. Skin4 (Light Orange) */
+/*$skin-logo: $skin4-logo;
+$skin-bg-color: $light-orange-color;
+$skin-active-color: #db8df6;
+$skin-select-color: $light-orange-color;
+$skin-hover-color: #f9bd9d;
+$skin-mobile-menu-color: #edb496;
+$skin-light-color: #f9bd9d;
+$skin-dark-color: #d36a31;*/
+
+/* 9. Skin5 (Sea Blue) */
+/*$skin-logo: $skin5-logo;
+$skin-bg-color: $sea-blue-color;
+$skin-active-color: $sea-blue-color;
+$skin-select-color: $yellow-theme-color;
+$skin-hover-color: #5cd9c2;
+$skin-mobile-menu-color: #2fcaae;
+$skin-light-color: #5cd9c2;
+$skin-dark-color: #0f957d;*/
+
+/* 10. Skin6 (Sky Blue) */
+/*$skin-logo: $skin6-logo;
+$skin-bg-color: $sky-blue-color;
+$skin-active-color: $sky-blue-color;
+$skin-select-color: $yellow-theme-color;
+$skin-hover-color: #91c1ec;
+$skin-mobile-menu-color: #529adb;
+$skin-light-color: #91c1ec;
+$skin-dark-color: #2a75ba;*/
+
+/* 11. Skin7 (Dark Orange) */
+/*$skin-logo: $skin7-logo;
+$skin-bg-color: $dark-orange-color;
+$skin-active-color: $dark-blue-color;
+$skin-select-color: $dark-orange-color;
+$skin-hover-color: #fd7979;
+$skin-mobile-menu-color: #e83939;
+$skin-light-color: #fd7979;
+$skin-dark-color: #c91a1a;*/
+
+/* 12. Skin8 (Dark Blue) */
+/*$skin-logo: $skin8-logo;
+$skin-bg-color: $blue-theme-color;
+$skin-active-color: $dark-blue-color;
+$skin-select-color: $blue-theme-color;
+$skin-hover-color: #40cbf8;
+$skin-mobile-menu-color: #04afe7;
+$skin-light-color: $light-blue-theme-color;
+$skin-dark-color: $dark-blue-theme-color;*/
+
+/* 13. Skin9 (Light Yellow) */
+/*$skin-logo: $skin9-logo;
+$skin-bg-color: #ff6c00;
+$skin-active-color: #ff6c00;
+$skin-select-color: $light-yellow-color;
+$skin-hover-color: #f87f26;
+$skin-mobile-menu-color: #ee6907;
+$skin-light-color: #f87f26;
+$skin-dark-color: #d95e04;*/
+
+/* 14. Skin10 (Purple) */
+/*$skin-logo: $skin10-logo;
+$skin-bg-color: $purple-color;
+$skin-active-color: $purple-color;
+$skin-select-color: $dark-orange-color;
+$skin-hover-color: #bc6cd8;
+$skin-mobile-menu-color: #a749c8;
+$skin-light-color: #bc6cd8;
+$skin-dark-color: #873ba2;*/

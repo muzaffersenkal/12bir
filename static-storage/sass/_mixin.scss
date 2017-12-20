@@ -1,0 +1,137 @@
+/*
+ * Title:   Travelo - Travel, Tour Booking HTML5 Template - SCSS Mixin
+ * Author:  http://themeforest.net/user/soaptheme
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Table of contents]
+
+1) BORDER RADIUS
+2) OPACITY
+3) BACKGROUND GRADIENT
+4) BOX SHADOW
+5) TEXT SHADOW
+6) TRANSITION
+7) ANIMATION
+8) TRANSFORM
+9) DESATURATE
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+/* 1) BORDER RADIUS */
+@mixin border-radius($top, $right, $bottom, $left) {
+  -webkit-border-radius: $top $right $bottom $left;
+     -moz-border-radius: $top $right $bottom $left;
+      -ms-border-radius: $top $right $bottom $left;
+          border-radius: $top $right $bottom $left;
+}
+
+/* 2) OPACITY */
+@mixin opacity($opacity: 0.5, $important: false) {
+    filter: alpha(opacity=($opacity * 100)) if($important, !important, null);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + ($opacity * 100) + ")"  if($important, !important, null);
+    -moz-opacity: $opacity  if($important, !important, null);
+    -khtml-opacity: $opacity  if($important, !important, null);
+    opacity: $opacity  if($important, !important, null);
+}
+
+/* 3) BACKGROUND GRADIENT */
+@mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {
+    background-color: $startColor;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+    background-image: -webkit-linear-gradient(top, $startColor, $endColor);
+    background-image: -moz-linear-gradient(top, $startColor, $endColor);
+    background-image: -ms-linear-gradient(top, $startColor, $endColor);
+    background-image: -o-linear-gradient(top, $startColor, $endColor);
+    background-image: linear-gradient(top, $startColor, $endColor);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');
+}
+
+/* 4) BOX SHADOW */
+@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: "") {
+  @if ($inset != "") {
+    -webkit-box-shadow: $inset $x $y $blur $color;
+    -moz-box-shadow: $inset $x $y $blur $color;
+    box-shadow: $inset $x $y $blur $color;
+  } @else {
+    -webkit-box-shadow: $x $y $blur $color;
+    -moz-box-shadow: $x $y $blur $color;
+    box-shadow: $x $y $blur $color;
+  }
+}
+
+/* 5) TEXT SHADOW */
+@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
+    text-shadow: $x $y $blur $color;
+}
+
+/* 6) TRANSITION */
+@mixin transition($what: all, $length: 1s, $easing: "") {
+    @if ($what == transform) {
+        @if ($easing != "") {
+            -moz-transition: -moz-transform $length $easing;
+            -o-transition: -o-transform $length $easing;
+            -webkit-transition: -webkit-transform $length $easing;
+            -ms-transition: -ms-transform $length $easing;
+            transition: transform $length $easing;
+        } @else {
+            -moz-transition: -moz-transform $length;
+            -o-transition: -o-transform $length;
+            -webkit-transition: -webkit-transform $length;
+            -ms-transition: -ms-transform $length;
+            transition: transform $length;
+        }
+    } @else {
+        @if ($easing != "") {
+            -moz-transition: $what $length $easing;
+            -o-transition: $what $length $easing;
+            -webkit-transition: $what $length $easing;
+            -ms-transition: $what $length $easing;
+            transition: $what $length $easing;
+        } @else {
+            -moz-transition: $what $length ease-in-out;
+            -o-transition: $what $length ease-in-out;
+            -webkit-transition: $what $length ease-in-out;
+            -ms-transition: $what $length ease-in-out;
+            transition: $what $length ease-in-out;
+        }
+    }
+}
+
+/* 7) ANIMATION */
+@mixin animation($what, $length: 1s, $easing: ease-in-out, $time: "") {
+    @if ($time != "") {
+    -webkit-animation: $what $length $easing $time;
+    -moz-animation: $what $length $easing $time;
+    animation: $what $length $easing $time;
+    } @else {
+    -webkit-animation: $what $length $easing;
+    -moz-animation: $what $length $easing;
+    animation: $what $length $easing;
+    }
+}
+
+/* 8) TRANSFORM */
+@mixin transform($params) {
+    -webkit-transform: $params;
+    -moz-transform: $params;
+    -ms-transform: $params;
+    -o-transform: $params;
+    transform: $params;
+}
+
+/* 9) DESATURATE */
+@mixin desaturate() {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+    -o-filter: grayscale(100%);
+    filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+}
+
+@mixin remove-desaturate() {
+    -webkit-filter: none;
+    filter: none;
+    -o-filter: none;
+}
