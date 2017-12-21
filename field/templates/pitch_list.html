@@ -27,6 +27,156 @@
         });
     </script>
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+ jQuery(document).ready(function() {
+
+     var FieldList = [];
+     var nextFieldUrl;
+     var initialURL = "/api/field";
+     var FieldContainer = $(".listing-style1");
+     var orderName = $(".sort-bar li.active").index()
+
+
+
+
+    function attachField(fieldValue,prepend) {
+
+       var fieldPrice  = fieldValue.price;
+       var fieldName = fieldValue.name;
+       var fieldCity = fieldValue.city;
+       var fieldDesc = fieldValue.desc;
+       var fieldUrl = fieldValue.url;
+       var fieldFormattedHtml ;
+
+
+
+        fieldFormattedHtml =  " <div class=\"col-sm-6 col-md-4\">  <article class=\"box\"><figure>\n" +
+            "                                                <a href=\"ajax/slideshow-popup.html\" class=\"hover-effect popup-gallery\"><img width=\"270\" height=\"160\" alt=\"\" src=\"http://placehold.it/270x160\"></a>\n" +
+            "                                            </figure>\n" +
+            "                                            <div class=\"details\">\n" +
+            "                                                <span class=\"price\">\n" +
+            "                                                    <small>avg/night </small>\n" +
+            "                                                   "+fieldPrice+" ₺\n" +
+            "                                                </span>\n" +
+            "                                                <h4 class=\"box-title\">"+fieldName+"<small>"+fieldValue.city+"</small></h4>\n" +
+            "                                                <div class=\"feedback\">\n" +
+            "                                                    <div data-placement=\"bottom\" data-toggle=\"tooltip\" class=\"five-stars-container\" title=\"4 stars\"><span style=\"width: 80%;\" class=\"five-stars\"></span></div>\n" +
+            "                                                    <span class=\"review\">270 reviews</span>\n" +
+            "                                                </div>\n" +
+            "                                                <p class=\"description\">\""+fieldValue.desc+"\"</p>\n" +
+            "                                                <div class=\"action\">\n" +
+            "                                                    <a class=\"button btn-small\" href=\""+fieldUrl+"\">İncele</a>\n" +
+            "                                                    <a class=\"button btn-small yellow popup-map\" href=\"#\" data-box=\"48.856614, 2.352222\">VIEW ON MAP</a>\n" +
+            "                                                </div>\n" +
+            "                                            </div>\n" +
+            "                                        </article>\n" +
+            "                                    </div>\n" +
+            "                                   ";
+
+
+
+       if(prepend == true){
+            FieldContainer.prepend(fieldFormattedHtml);
+       }else{
+            FieldContainer.append(fieldFormattedHtml);
+       }
+
+
+
+   }
+
+      function parseFields(){
+       if(FieldList == 0){
+          FieldContainer.append("No fields currently found.")
+
+       }else{
+              $.each(FieldList,function (key,value) {
+               var fieldKey = key;
+
+                   attachField(value,false,true)
+
+
+
+           });
+
+       }
+   }
+
+
+
+    function fetchFields(url){
+       var fetchUrl;
+       if(!url){
+            fetchUrl = initialURL
+       }else{
+            fetchUrl = url;
+       }
+
+        $.ajax({
+            url: fetchUrl,
+            data: {
+                "order" : orderName
+            },
+            method: "GET",
+            success: function (data) {
+                 FieldList =  data.results;
+                  if(data.next) {
+                   nextFieldUrl = data.next
+                   }else {
+                     $("#loadmore").css("display","none")
+                   }
+                parseFields()
+                console.log(data);
+
+            }
+
+        });
+        }
+
+
+     //Load More
+
+        $("#loadmore").click(function(event){
+
+            event.preventDefault();
+            if(nextFieldUrl){
+                fetchFields(nextFieldUrl)
+            }
+
+          })
+
+
+
+
+
+      //Sort Part
+
+     $(".sort-bar li").click(function(){
+         $(".sort-bar li").removeClass("active");
+         $(this).addClass("active");
+         orderName = $(this).index()
+         FieldContainer.children().remove();
+         fetchFields()
+         console.log("yazılıyor=>"+orderName);
+
+
+     })
+
+
+
+     fetchFields()
+
+    });
+
+
+
+
+
+    </script>
+
 {% endblock %}
 {% block content %}
 
@@ -173,9 +323,9 @@
                                 <h4 class="sort-by-title block-sm">Sort results by:</h4>
                                 <ul class="sort-bar clearfix block-sm">
                                     <li class="sort-by-name"><a class="sort-by-container" href="#"><span>name</span></a></li>
-                                    <li class="sort-by-price"><a class="sort-by-container" href="#"><span>price</span></a></li>
+                                    <li class="sort-by-price active"><a class="sort-by-container" href="#"><span>price</span></a></li>
                                     <li class="clearer visible-sms"></li>
-                                    <li class="sort-by-rating active"><a class="sort-by-container" href="#"><span>rating</span></a></li>
+                                    <li class="sort-by-rating"><a class="sort-by-container" href="#"><span>rating</span></a></li>
                                     <li class="sort-by-popularity"><a class="sort-by-container" href="#"><span>popularity</span></a></li>
                                 </ul>
 
@@ -193,35 +343,35 @@
                             </div>
                             <div class="hotel-list">
                                 <div class="row image-box hotel listing-style1">
-                                    {% for object in object_list %}
-                                    <div class="col-sm-6 col-md-4">
-                                        <article class="box">
-                                            <figure>
-                                                <a href="ajax/slideshow-popup.html" class="hover-effect popup-gallery"><img width="270" height="160" alt="" src="http://placehold.it/270x160"></a>
-                                            </figure>
-                                            <div class="details">
-                                                <span class="price">
-                                                    <small>avg/night </small>
-                                                    {{ object.price }}₺
-                                                </span>
-                                                <h4 class="box-title">{{ object.name }}<small>{{ object.city }}</small></h4>
-                                                <div class="feedback">
-                                                    <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="4 stars"><span style="width: 80%;" class="five-stars"></span></div>
-                                                    <span class="review">270 reviews</span>
-                                                </div>
-                                                <p class="description">{{ object.desc }}</p>
-                                                <div class="action">
-                                                    <a class="button btn-small" href="{{ object.get_absolute_url  }}">İncele</a>
-                                                    <a class="button btn-small yellow popup-map" href="#" data-box="48.856614, 2.352222">VIEW ON MAP</a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    {% endfor %}
+{#                                    {% for object in object_list %}#}
+{#                                    <div class="col-sm-6 col-md-4">#}
+{#                                        <article class="box">#}
+{#                                            <figure>#}
+{#                                                <a href="ajax/slideshow-popup.html" class="hover-effect popup-gallery"><img width="270" height="160" alt="" src="http://placehold.it/270x160"></a>#}
+{#                                            </figure>#}
+{#                                            <div class="details">#}
+{#                                                <span class="price">#}
+{#                                                    <small>avg/night </small>#}
+{#                                                    {{ object.price }}₺#}
+{#                                                </span>#}
+{#                                                <h4 class="box-title">{{ object.name }}<small>{{ object.city }}</small></h4>#}
+{#                                                <div class="feedback">#}
+{#                                                    <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="4 stars"><span style="width: 80%;" class="five-stars"></span></div>#}
+{#                                                    <span class="review">270 reviews</span>#}
+{#                                                </div>#}
+{#                                                <p class="description">{{ object.desc }}</p>#}
+{#                                                <div class="action">#}
+{#                                                    <a class="button btn-small" href="{{ object.get_absolute_url  }}">İncele</a>#}
+{#                                                    <a class="button btn-small yellow popup-map" href="#" data-box="48.856614, 2.352222">VIEW ON MAP</a>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </article>#}
+{#                                    </div>#}
+{#                                    {% endfor %}#}
 
                                 </div>
                             </div>
-                            <a href="#" class="uppercase full-width button btn-large">load more listing</a>
+                            <a href="#" class="uppercase full-width button btn-large" id="loadmore">load more listing</a>
                         </div>
                     </div>
                 </div>

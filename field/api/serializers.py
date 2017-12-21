@@ -7,6 +7,7 @@ User  = get_user_model()
 
 class FieldModelSerializer(serializers.ModelSerializer):
 
+    url = serializers.SerializerMethodField()
     class Meta:
         model = Field
         fields = [
@@ -14,11 +15,13 @@ class FieldModelSerializer(serializers.ModelSerializer):
             "desc",
             "price",
             "city",
-            "slug"
+            "slug",
+            "url",
+
 
         ]
 
     # def get_follower_count(self,obj):
     #     return 0
-    # def get_url(self,obj):
-    #     return reverse_lazy("profiles:detail", kwargs={"username":obj.username})
+    def get_url(self,obj):
+        return reverse_lazy("detail", kwargs={"slug":obj.slug})
