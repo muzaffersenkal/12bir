@@ -49,7 +49,7 @@ class Field(models.Model):
 class Review(models.Model):
     title = models.CharField(max_length=30)
     review = models.TextField()
-    post = models.ForeignKey('Field',on_delete=models.CASCADE)
+    post = models.ForeignKey('field',on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
 
     def __str__(self):

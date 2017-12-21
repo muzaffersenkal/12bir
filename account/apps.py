@@ -4,5 +4,5 @@ from __future__ import unicode_literals
 from django.apps import AppConfig
 
 
-class FieldConfig(AppConfig):
-    name = 'Field'
+class AccountConfig(AppConfig):
+    name = 'account'
