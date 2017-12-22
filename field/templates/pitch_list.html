@@ -38,7 +38,9 @@
      var initialURL = "/api/field";
      var FieldContainer = $(".listing-style1");
      var orderName = $(".sort-bar li.active").index()
-
+     var min;
+     var max;
+     var searchAgain;
 
 
 
@@ -107,7 +109,7 @@
 
 
 
-    function fetchFields(url){
+    function fetchFields(url,searchAgain){
        var fetchUrl;
        if(!url){
             fetchUrl = initialURL
@@ -118,7 +120,8 @@
         $.ajax({
             url: fetchUrl,
             data: {
-                "order" : orderName
+                "order" : orderName,
+                 "searchAgain": searchAgain
             },
             method: "GET",
             success: function (data) {
@@ -146,7 +149,45 @@
                 fetchFields(nextFieldUrl)
             }
 
-          })
+          });
+
+
+          $("#search-again").click(function(event){
+
+            event.preventDefault();
+            min = $(".min-price-label").text().slice(1);
+            max = $(".max-price-label").text().slice(1);
+
+
+
+             $.ajax({
+            url: "/api/field/",
+            data: {
+
+                 "min": min,
+                 "max": max
+            },
+            traditional: true,
+            method: "GET",
+            success: function (data) {
+                 FieldList =  data.results;
+                  if(data.next) {
+                   nextFieldUrl = data.next
+                   }else {
+                     $("#loadmore").css("display","none")
+                   }
+                    FieldContainer.children().remove();
+                parseFields()
+                console.log(data);
+
+            }
+
+        });
+
+
+
+          });
+
 
 
 
@@ -311,7 +352,7 @@
                                                     </div>
                                                 </div>
                                                 <br />
-                                                <button class="btn-medium icon-check uppercase full-width">search again</button>
+                                                <button id="search-again" class="btn-medium icon-check uppercase full-width">search again</button>
                                             </form>
                                         </div>
                                     </div>
