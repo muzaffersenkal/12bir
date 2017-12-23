@@ -26,6 +26,7 @@ from account.views import UserRegister,ProfileView
 urlpatterns = [
     url(r'^$',IndexView.as_view(),name="index"),
      url(r'^api/field/', include('field.api.urls', namespace="field-api")),
+     url(r'^api/sepet/', include('account.api.urls', namespace="sepet-api")),
     url(r'^list/$',ListView.as_view(),name="list"),
     url(r'^accounts/profile$',ProfileView.as_view(),name="profile"),
     url(r'^register/$',UserRegister.as_view(),name="register"),

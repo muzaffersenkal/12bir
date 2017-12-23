@@ -8791,11 +8791,15 @@ ul.search-tabs li.active a {
 
 }
 #hotel-main-content .calendar table tbody td.a-hours-selected  > a:before, #hotel-main-content .calendar table tbody td.a-hours-selected  > span:before, #flight-main-content .calendar table tbody td.a-hours-selected   > a:before, #flight-main-content .calendar table tbody a-hours-selected  > span:before, #cruise-main-content .calendar table tbody a-hours-selected  > a:before, #cruise-main-content .calendar table tbody a-hours-selected  > span:before {
-  background: #f4ff45;
+  background: #fff784;
   content: "SEÇİLDİ";
   cursor: pointer;
 }
 
+#hotel-main-content .calendar-legend label.secildi:before, #flight-main-content .calendar-legend label.secildi:before, #cruise-main-content .calendar-legend label.secildi:before {
+
+  border-color: #f4ff45;
+}
 
 
 #hotel-main-content .calendar table tbody td.date-passed > a, #hotel-main-content .calendar table tbody td.date-passed > span, #flight-main-content .calendar table tbody td.date-passed > a, #flight-main-content .calendar table tbody td.date-passed > span, #cruise-main-content .calendar table tbody td.date-passed > a, #cruise-main-content .calendar table tbody td.date-passed > span {

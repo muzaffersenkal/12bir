@@ -25,3 +25,5 @@ class FieldModelSerializer(serializers.ModelSerializer):
     #     return 0
     def get_url(self,obj):
         return reverse_lazy("detail", kwargs={"slug":obj.slug})
+
+

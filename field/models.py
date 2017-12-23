@@ -57,6 +57,18 @@ class Review(models.Model):
     def __str__(self):
         return self.title
 
+class Sepet(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
+    field = models.ForeignKey('Field',on_delete=models.CASCADE,related_name="field")
+    selected = models.CharField(max_length=40)
+    created = models.DateTimeField(auto_now_add=True)
+    pay = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.field.name+" => "+self.user.username
+
+
+
 
 
 
