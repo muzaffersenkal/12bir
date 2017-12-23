@@ -38,6 +38,7 @@ class Field(models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={'slug':self.slug})
 
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super(Field, self).save(*args, **kwargs)
@@ -49,7 +50,8 @@ class Field(models.Model):
 class Review(models.Model):
     title = models.CharField(max_length=30)
     review = models.TextField()
-    post = models.ForeignKey('field',on_delete=models.CASCADE)
+    rating = models.IntegerField()
+    post = models.ForeignKey('field',on_delete=models.CASCADE,related_name="review")
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
 
     def __str__(self):

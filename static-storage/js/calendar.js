@@ -58,9 +58,9 @@ function Calendar() {
             var priceText = "";
             if (Year > thisYear || (Year == thisYear && Month > thisMonth) || (Year == thisYear && Month == thisMonth && i >= thisDay)) {
                 if ($.inArray(i, notAvailableDays) !== -1) {
-                    className += " unavailable";
+                    className += "unavailable";
                 } else {
-                    className += " available";
+                    className += "available";
                     if (typeof priceArr[i] != "undefined") {
                         priceText += "<span class='price-text'>" + priceArr[i] + "</span>";
                     }
@@ -70,9 +70,9 @@ function Calendar() {
             }
 
             if (i < thisDay || $.inArray(i, notAvailableDays) !== -1) {
-                html += "<td class='" + className + "'><span>" + i + "</span></td>";
+                html += "<td class='"+className+"'><span>" + i + "</span></td>";
             } else {
-                html += "<td class='" + className + "'><a href='#'>" + i + priceText + "</a></td>";
+                html += "<td class='" +className+ "'><a href='#'>" + i + priceText + "</a></td>";
             }
             
             column++;
@@ -81,6 +81,9 @@ function Calendar() {
                 column = 0;
             }
         }
+
+
+
     
         /*if (column > 0) {
             for ( i = 1; column < 7; i++) {

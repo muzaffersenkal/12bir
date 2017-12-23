@@ -2,12 +2,24 @@
 {% load static %}
 {% block scripts %}
       <!-- Google Map Api -->
+
     <script type="text/javascript" src="{% static 'js/calendar.js' %}"></script>
+     <script type="text/javascript" src="{% static 'js/hours.js' %}"></script>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBAkwljE729SUL8EJGEqvwvusud7q1yLto"></script>
- <script type="text/javascript">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+
+</script>
+    <script type="text/javascript">
+
+
         tjq(document).ready(function() {
             // calendar panel
             var cal = new Calendar();
+            var hours = new Hours();
+            var secilen;
             var unavailable_days = [17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
             var price_arr = {3: '$170', 4: '$170', 5: '$170', 6: '$170', 7: '$170', 8: '$170', 9: '$170', 10: '$170', 11: '$170', 12: '$170', 13: '$170', 14: '$170', 15: '$170', 16: '$170', 17: '$170'};
 
@@ -17,6 +29,13 @@
             cal.generateHTML(current_date.getMonth(), (1900 + current_date.getYear()), unavailable_days, price_arr);
             tjq(".calendar").html(cal.getHTML());
 
+     tjq(document.body).on("click",".available",function(e){
+         tjq(".calendar").children().remove();
+
+            hours.generateHTML()
+            tjq(".calendar").html(hours.getHTML());
+
+   })
             tjq("#select-month").change(function() {
                 var selected_year_month = tjq("#select-month option:selected").val();
                 var year = parseInt(selected_year_month.split("-")[0], 10);
@@ -24,6 +43,7 @@
                 cal.generateHTML(month - 1, year, unavailable_days, price_arr);
                 tjq(".calendar").html(cal.getHTML());
             });
+
 
 
             tjq(".goto-writereview-pane").click(function(e) {
@@ -50,6 +70,7 @@
                 });
             });
         });
+
 
         tjq('a[href="#map-tab"]').on('shown.bs.tab', function (e) {
             var center = panorama.getPosition();
@@ -109,8 +130,8 @@
                                 <li class="active"><a data-toggle="tab" href="#photos-tab">photos</a></li>
                                 <li><a data-toggle="tab" href="#map-tab">map</a></li>
                                 <li><a data-toggle="tab" href="#steet-view-tab">street view</a></li>
-                                <li><a data-toggle="tab" href="#calendar-tab">calendar</a></li>
-                                <li class="pull-right"><a class="button btn-small yellow-bg white-color" href="#">TRAVEL GUIDE</a></li>
+
+                                <li class="pull-right"><a data-toggle="tab" class="button btn-small yellow-bg white-color" href="#calendar-tab">Rezervasyon Yap</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div id="photos-tab" class="tab-pane fade in active">
@@ -156,17 +177,17 @@
 
                                 </div>
                                 <div id="calendar-tab" class="tab-pane fade">
-                                    <label>SELECT MONTH</label>
+                                    <label class="ab">SELECT MONTH</label>
                                     <div class="col-sm-6 col-md-4 no-float no-padding">
                                         <div class="selector">
                                             <select class="full-width" id="select-month">
-                                                <option value="2014-6">June 2014</option>
-                                                <option value="2014-7">July 2014</option>
-                                                <option value="2014-8">August 2014</option>
-                                                <option value="2014-9">September 2014</option>
-                                                <option value="2014-10">October 2014</option>
-                                                <option value="2014-11">November 2014</option>
-                                                <option value="2014-12">December 2014</option>
+                                                <option value="2018-6">June 2018</option>
+                                                <option value="2018-7">July 2018</option>
+                                                <option value="2018-8">August 2018</option>
+                                                <option value="2018-9">September 2018</option>
+                                                <option value="2018-10">October 2018</option>
+                                                <option value="2018-11">November 2018</option>
+                                                <option value="2018-12">December 2018</option>
                                             </select>
                                         </div>
                                     </div>
@@ -625,7 +646,7 @@ Sed scelerisque lectus sit amet faucibus sodales. Proin ut risus tortor. Etiam f
                                 <div class="tab-pane fade" id="hotel-reviews">
                                     <div class="intro table-wrapper full-width hidden-table-sms">
                                         <div class="rating table-cell col-sm-4">
-                                            <span class="score">3.9/5.0</span>
+                                            <span class="score">{{ rate }}/5.0</span>
                                             <div class="five-stars-container"><div class="five-stars" style="width: 78%;"></div></div>
                                             <a href="#" class="goto-writereview-pane button green btn-small full-width">WRITE A REVIEW</a>
                                         </div>
@@ -799,6 +820,20 @@ Sed scelerisque lectus sit amet faucibus sodales. Proin ut risus tortor. Etiam f
                                         <div class="form-group col-md-5 no-float no-padding">
                                             <h4 class="title">Konu Başlığı</h4>
                                             <input type="text" name="review-title" class="input-text full-width" value="" placeholder="Konu başlığını gir   " />
+                                        </div>
+
+                                           <div class="form-group col-md-5 no-float no-padding">
+                                            <h4 class="title">Puanla</h4>
+                                            <div class="selector">
+                                                <select class="full-width">
+                                                    <option value="0">0- Çok Kötü</option>
+                                                    <option value="1">1- İdare Eder</option>
+                                                    <option value="2">2- Normal</option>
+                                                    <option value="3">3 - İyi</option>
+                                                    <option value="4">4 - Çok İyi</option>
+                                                    <option value="5">5 - Mükemmel</option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <h4 class="title">Yorum</h4>
