@@ -30,12 +30,24 @@
             tjq(".calendar").html(cal.getHTML());
 
      tjq(document.body).on("click",".available",function(e){
-         tjq(".calendar").children().remove();
+         e.preventDefault()
+
 
             hours.generateHTML()
             tjq(".calendar").html(hours.getHTML());
 
    })
+
+              tjq(document.body).on("click",".a-hours",function(e){
+                  e.preventDefault()
+
+                  hours.generateHTML(tjq(this).text())
+                  tjq(".calendar").html(hours.getHTML());
+
+
+   })
+
+
             tjq("#select-month").change(function() {
                 var selected_year_month = tjq("#select-month option:selected").val();
                 var year = parseInt(selected_year_month.split("-")[0], 10);

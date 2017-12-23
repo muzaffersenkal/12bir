@@ -8761,7 +8761,7 @@ ul.search-tabs li.active a {
   top: 0;
   bottom: 0;
   right: 0;
-  content: "NOT AVAILABLE";
+  content: "UYGUN DEĞİL";
   background: #da6161;
   font-size: 10px;
   text-align: center;
@@ -8781,16 +8781,30 @@ ul.search-tabs li.active a {
 }
 #hotel-main-content .calendar table tbody td.available > a:before, #hotel-main-content .calendar table tbody td.available > span:before, #flight-main-content .calendar table tbody td.available > a:before, #flight-main-content .calendar table tbody td.available > span:before, #cruise-main-content .calendar table tbody td.available > a:before, #cruise-main-content .calendar table tbody td.available > span:before {
   background: #98ce44;
-  content: "BOOK FROM";
+  content: "SEÇ";
   cursor: pointer;
 }
+
+#hotel-main-content .calendar table tbody td.a-hours-selected > a, #hotel-main-content .calendar table tbody td.a-hours-selected  > span, #flight-main-content .calendar table tbody td.a-hours-selected  > a, #flight-main-content .calendar table tbody a-hours-selected  > span, #cruise-main-content .calendar table tbody a-hours-selected > a, #cruise-main-content .calendar table tbody a-hours-selected  > span {
+  border: 4px solid #F4FF45;
+  color: #F4FF45;
+
+}
+#hotel-main-content .calendar table tbody td.a-hours-selected  > a:before, #hotel-main-content .calendar table tbody td.a-hours-selected  > span:before, #flight-main-content .calendar table tbody td.a-hours-selected   > a:before, #flight-main-content .calendar table tbody a-hours-selected  > span:before, #cruise-main-content .calendar table tbody a-hours-selected  > a:before, #cruise-main-content .calendar table tbody a-hours-selected  > span:before {
+  background: #f4ff45;
+  content: "SEÇİLDİ";
+  cursor: pointer;
+}
+
+
+
 #hotel-main-content .calendar table tbody td.date-passed > a, #hotel-main-content .calendar table tbody td.date-passed > span, #flight-main-content .calendar table tbody td.date-passed > a, #flight-main-content .calendar table tbody td.date-passed > span, #cruise-main-content .calendar table tbody td.date-passed > a, #cruise-main-content .calendar table tbody td.date-passed > span {
   border-color: #01b7f2;
   color: #01b7f2;
 }
 #hotel-main-content .calendar table tbody td.date-passed > a:before, #hotel-main-content .calendar table tbody td.date-passed > span:before, #flight-main-content .calendar table tbody td.date-passed > a:before, #flight-main-content .calendar table tbody td.date-passed > span:before, #cruise-main-content .calendar table tbody td.date-passed > a:before, #cruise-main-content .calendar table tbody td.date-passed > span:before {
   background: #01b7f2;
-  content: "DATE PASSED";
+  content: "ZAMAN GEÇTİ";
 }
 #hotel-main-content .calendar table tbody td .price-text, #flight-main-content .calendar table tbody td .price-text, #cruise-main-content .calendar table tbody td .price-text {
   position: absolute;
