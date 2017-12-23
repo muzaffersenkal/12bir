@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from field.views import IndexView,ListView,DetailView
+from account.views import UserRegister,ProfileView
 
 
 
@@ -26,6 +27,8 @@ urlpatterns = [
     url(r'^$',IndexView.as_view(),name="index"),
      url(r'^api/field/', include('field.api.urls', namespace="field-api")),
     url(r'^list/$',ListView.as_view(),name="list"),
+    url(r'^accounts/profile$',ProfileView.as_view(),name="profile"),
+    url(r'^register/$',UserRegister.as_view(),name="register"),
     url('accounts/', include('django.contrib.auth.urls')),
     url(r'^list/(?P<slug>[-\w]+)/$',DetailView.as_view(),name="detail"),
     url(r'^admin/', admin.site.urls),
