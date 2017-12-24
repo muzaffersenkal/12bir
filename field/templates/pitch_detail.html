@@ -58,7 +58,28 @@
                  if(typeof secilen_saat == "undefined"){
              alert("saat seçmelisiniz");
             }else{
-                alert("saat seçildi");
+                    var this_ = $(this)
+        var formData = this_.serialize()
+                  $.ajax({
+               url : "/api/sepet/create/",
+
+              data :formData,
+            method: "POST",
+
+
+               success: function (data) {
+
+                    console.log(data)
+
+
+
+                 },
+                   error: function(XMLHttpRequest, textStatus, errorThrown) {
+      console.log("some error " + String(errorThrown) + String(textStatus) + String(XMLHttpRequest.responseText));
+      }
+
+
+            });
             }
 
 

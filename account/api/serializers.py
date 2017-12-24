@@ -21,16 +21,16 @@ class UserDisplaySerializer(serializers.ModelSerializer):
 class SepetModelSerializer(serializers.ModelSerializer):
 
     user = UserDisplaySerializer(read_only=True)
-    field = FieldModelSerializer()
+    field = FieldModelSerializer(read_only=True)
 
     class Meta:
         model = Sepet
         fields = [
             "user",
             "field",
-            "selected",
-            "created",
-            "pay",
+            # "selected",
+            # "created",
+            # "pay",
 
 
 

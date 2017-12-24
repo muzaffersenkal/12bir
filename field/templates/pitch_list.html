@@ -41,6 +41,7 @@
      var min;
      var max;
      var searchAgain;
+     var listtype = 1 ;
 
 
 
@@ -53,7 +54,7 @@
        var fieldUrl = fieldValue.url;
        var fieldFormattedHtml ;
 
-
+        if(listtype == 1){
 
         fieldFormattedHtml =  " <div class=\"col-sm-6 col-md-4\">  <article class=\"box\"><figure>\n" +
             "                                                <a href=\"ajax/slideshow-popup.html\" class=\"hover-effect popup-gallery\"><img width=\"270\" height=\"160\" alt=\"\" src=\"http://placehold.it/270x160\"></a>\n" +
@@ -77,6 +78,56 @@
             "                                        </article>\n" +
             "                                    </div>\n" +
             "                                   ";
+        }else if (listtype == 0){
+        fieldFormattedHtml = "<article class=\"box\">\n" +
+            "                                    <figure class=\"col-sm-5 col-md-4\">\n" +
+            "                                        <a title=\"\" href=\"ajax/slideshow-popup.html\" class=\"hover-effect popup-gallery\"><img width=\"270\" height=\"160\" alt=\"\" src=\"http://placehold.it/270x160\"></a>\n" +
+            "                                    </figure>\n" +
+            "                                    <div class=\"details col-sm-7 col-md-8\">\n" +
+            "                                        <div>\n" +
+            "                                            <div>\n" +
+            "                                                <h4 class=\"box-title\">"+fieldName+"<small><i class=\"soap-icon-departure yellow-color\"></i> "+fieldCity+"</small></h4>\n" +
+            "                                                <div class=\"amenities\">\n" +
+            "                                                    <i class=\"soap-icon-wifi circle\"></i>\n" +
+            "                                                    <i class=\"soap-icon-fitnessfacility circle\"></i>\n" +
+            "                                                    <i class=\"soap-icon-fork circle\"></i>\n" +
+            "                                                    <i class=\"soap-icon-television circle\"></i>\n" +
+            "                                                </div>\n" +
+            "                                            </div>\n" +
+            "                                            <div>\n" +
+            "                                                <div class=\"five-stars-container\">\n" +
+            "                                                    <span class=\"five-stars\" style=\"width: 80%;\"></span>\n" +
+            "                                                </div>\n" +
+            "                                                <span class=\"review\">270 reviews</span>\n" +
+            "                                            </div>\n" +
+            "                                        </div>\n" +
+            "                                        <div>\n" +
+            "                                            <p>"+fieldDesc+"</p>\n" +
+            "                                            <div>\n" +
+            "                                                <span class=\"price\"><small>AVG/NIGHT</small>"+fieldPrice+" ₺</span>\n" +
+            "                                                <a class=\"button btn-small full-width text-center\" title=\"\" href=\""+fieldUrl+"\">İncele</a>\n" +
+            "                                            </div>\n" +
+            "                                        </div>\n" +
+            "                                    </div>\n" +
+            "                                </article>"
+            }else {
+
+            fieldFormattedHtml = "<div class=\"col-sms-6 col-sm-6 col-md-4\">\n" +
+                "                                        <article class=\"box\">\n" +
+                "                                            <figure>\n" +
+                "                                                <a href=\"ajax/slideshow-popup.html\" title=\"\" class=\"hover-effect popup-gallery\"><img src=\"http://placehold.it/270x160\" alt=\"\" width=\"270\" height=\"160\"></a>\n" +
+                "                                            </figure>\n" +
+                "                                            <div class=\"details\">\n" +
+                "                                                <a title=\"View all\" href=\""+fieldUrl+"\" class=\"pull-right button uppercase\">incele</a>\n" +
+                "                                                <h4 class=\"box-title\">"+fieldName+"</h4>\n" +
+                "                                                <label class=\"price-wrapper\">\n" +
+                "                                                    <span class=\"price-per-unit\">"+fieldPrice+" ₺</span>avg/night\n" +
+                "                                                </label>\n" +
+                "                                            </div>\n" +
+                "                                        </article>\n" +
+                "                                    </div>"
+
+        }
 
 
 
@@ -205,6 +256,33 @@
 
 
      })
+
+     // List style
+      $(".swap-tiles li").click(function(){
+         $(".swap-tiles li").removeClass("active");
+         $(this).addClass("active");
+         var listindex = $(this).index();
+
+         if(listindex == 0){
+          listtype=0;
+           FieldContainer.attr('class', 'hotel-list listing-style3 hotel');
+         }else if ( listindex == 1){
+             listtype=1;
+              FieldContainer.attr('class', 'row image-box hotel listing-style1');
+         }else {
+             listtype = 2;
+              FieldContainer.attr('class', 'row image-box listing-style2');
+         }
+
+        FieldContainer.children().remove();
+
+
+         fetchFields();
+         console.log("listing=>");
+      })
+
+
+
 
 
 
@@ -372,13 +450,13 @@
 
                                 <ul class="swap-tiles clearfix block-sm">
                                     <li class="swap-list">
-                                        <a href="hotel-list-view.html"><i class="soap-icon-list"></i></a>
+                                        <a href="#"><i class="soap-icon-list"></i></a>
                                     </li>
                                     <li class="swap-grid active">
-                                        <a href="hotel-grid-view.html"><i class="soap-icon-grid"></i></a>
+                                        <a href="#"><i class="soap-icon-grid"></i></a>
                                     </li>
                                     <li class="swap-block">
-                                        <a href="hotel-block-view.html"><i class="soap-icon-block"></i></a>
+                                        <a href="#"><i class="soap-icon-block"></i></a>
                                     </li>
                                 </ul>
                             </div>

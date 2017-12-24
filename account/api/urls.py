@@ -1,11 +1,12 @@
 from django.conf.urls import url
 from django.views.generic.base import  RedirectView
-from .views import  SepetAPIView
+from .views import  SepetAPIView,SepetCreateAPIView
 
 urlpatterns = [
     #
     # url(r'^$', RedirectView.as_view(url="/")),
     url(r'^$', SepetAPIView.as_view() , name='sepet-list'),
+    url(r'^create/$', SepetCreateAPIView.as_view(), name='create'),
     # url(r'^create/$', TweetCreateAPIView.as_view() , name='create'),
     # url(r'^(?P<pk>\d+)/retweet$',RetweetAPIView.as_view() , name='retweetS'),
     # url(r'^create/$', TweetCreateView.as_view() , name='create'),
