@@ -14,21 +14,21 @@ class FieldAPIView(generics.ListAPIView):
     pagination_class = StandardResultsSetPagination
     queryset = Field.objects.all()
     def get_queryset(self, *args, **kwargs):
-
+        queryset = Field.objects.all()
         order = self.request.GET.get("order", None)
         min = self.request.GET.get("min", None)
         max = self.request.GET.get("max", None)
         if min and max is not None:
 
-            return Field.objects.filter(price__gte=min,price__lte=max)
+            queryset= queryset.filter(price__gte=min,price__lte=max)
         if order is not None:
 
             if(int(order) == 0):
-                return  Field.objects.order_by("name")
+                queryset = queryset.order_by("name")
             elif (int(order) == 1):
-                return  Field.objects.order_by("-price")
+                queryset = queryset.order_by("-price")
             else:
-                return Field.objects.all()
+                return queryset
 
-        return Field.objects.all()
+        return queryset
 
