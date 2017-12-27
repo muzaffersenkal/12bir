@@ -30,9 +30,6 @@ class Field(models.Model):
 
 
 
-
-
-
     picture = models.ImageField(upload_to='uploads/post_pics', blank=True)
 
     def get_absolute_url(self):

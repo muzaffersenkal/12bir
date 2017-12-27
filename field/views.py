@@ -1,6 +1,8 @@
-from django.views.generic import ListView , TemplateView,DetailView
+from django.views.generic import ListView , TemplateView,DetailView,FormView
 from .models import Field
 from django.db.models import Avg
+from .forms import ReviewModelForm
+
 
 class IndexView(TemplateView):
 
@@ -8,15 +10,18 @@ class IndexView(TemplateView):
 
 
 class ListView(ListView):
+
     queryset =  Field.objects.all()
     print(queryset)
     template_name ="pitch_list.html"
 
 
 
-class DetailView(DetailView):
+class DetailView(DetailView,FormView):
+
     model = Field
     template_name = "pitch_detail.html"
+    form_class = ReviewModelForm
 
     def get_object(self):
         slug = self.kwargs.get("slug")
@@ -28,6 +33,11 @@ class DetailView(DetailView):
         avg =  self.get_object().review.aggregate(Avg('rating'))
         context['rate'] = avg["rating__avg"]
         return context
+
+    def form_valid(self, form):
+        contact_name = self.form.cleaned_data['contact_name']
+
+        return super(DetailView, self).form_valid(form)
 
 
 

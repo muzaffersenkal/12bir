@@ -26,11 +26,20 @@ class ProfileView(LoggedInMixin,TemplateView):
 
     template_name = "profile.html"
 
+class SepetView(LoggedInMixin,ListView):
+    template_name = "sepetim.html"
+
+    queryset = Sepet.objects.all()
+
+
 
 def sepetHeader(request):
 
+
     user = request.user;
-    list = Sepet.objects.filter(user=user)
+    if user.is_authenticated:
+        list = Sepet.objects.filter(user=user)
 
 
-    return { "sepetNumber":list.count}
+        return { "sepetNumber":list.count}
+    return {}

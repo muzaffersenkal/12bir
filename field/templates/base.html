@@ -58,6 +58,7 @@
             <div class="topnav hidden-xs">
                 <div class="container">
                     {% if user.is_authenticated %}
+
                     <ul class="quick-menu pull-left">
 
                         <li><a href="{%  url 'profile' %} ">HESABIM</a></li>
@@ -66,7 +67,7 @@
                     </ul>
                              <ul class="quick-menu pull-right">
 
-                        <li><a href="#" >SEPETİM <span class="sepet-number">{{ sepetNumber }}</span></a></li>
+                        <li><a href="#" >SEPETİM (<span class="sepet-number">{{ sepetNumber }}</span>)</a></li>
 
 
                     </ul>

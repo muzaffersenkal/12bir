@@ -34,37 +34,44 @@
 
 
 
-                    tjq(document.body).on("click",".sepete-ekle",function(e){
-                  e.preventDefault()
+              tjq(document.body).on("click",".sepete-ekle",function(e){
+                                  e.preventDefault()
 
                            var openPopupOne  = $('#openPopupOne'),
-        overlay     = $('.overlay'),
-        popup       = $('.popup'),
-        closePopUpOne = $('#closePopUpOne')
-                 if(typeof secilen_saat == "undefined"){
+                            overlay     = $('.overlay'),
+                            popup       = $('.popup'),
+                            closePopUpOne = $('#closePopUpOne')
 
 
-        overlay.fadeIn();
-        popup.show(0, function () {
-            $(this).children("p").text("Saat Seçmelisiniz");
-            $(this).toggleClass('oneOpen');
-        });
+
+                                     if(typeof secilen_saat == "undefined"){
+
+
+                            overlay.fadeIn();
+                            popup.show(0, function () {
+                                $(this).children("p").text("Saat Seçmelisiniz");
+                                $(this).toggleClass('oneOpen');
+                            });
             }else{
              var formData = secilen_ay+"/"+secilen_gun+"/"+secilen_saat
-                  $.ajax({
-               url : "/api/sepet/create/",
+              $.ajax({
+                url : "/api/sepet/create/",
 
-              data :{  csrfmiddlewaretoken: '{{ csrf_token }}',"selected":formData },
-            type: "POST",
+                data :{  csrfmiddlewaretoken: '{{ csrf_token }}',"selected":formData },
+                type: "POST",
 
 
                success: function (data) {
 
-                     overlay.fadeIn();
-        popup.show(0, function () {
-            $(this).children("p").text(formData+" tarihine rezervasyonunuz başarıyla gerçekleşti");
-            $(this).toggleClass('oneOpen');
-        });
+                    var newNumber = Number(tjq(".sepet-number").text())+1
+
+                   tjq(".sepet-number").text(newNumber)
+
+                   overlay.fadeIn();
+                        popup.show(0, function () {
+                            $(this).children("p").text(formData+" tarihine rezervasyonunuz başarıyla gerçekleşti");
+                            $(this).toggleClass('oneOpen');
+                        });
 
                     console.log(data)
 
@@ -962,8 +969,16 @@ Sed scelerisque lectus sit amet faucibus sodales. Proin ut risus tortor. Etiam f
                                             </div>
                                         </div>
                                     </div>
+
+
+
+                                    {% include "review_form.html"  with form=form  %}
+
+
                                       {% if request.user.is_authenticated %}
                                     <form class="review-form">
+
+
                                         <div class="form-group col-md-5 no-float no-padding">
                                             <h4 class="title">Konu Başlığı</h4>
                                             <input type="text" name="review-title" class="input-text full-width" value="" placeholder="Konu başlığını gir   " />

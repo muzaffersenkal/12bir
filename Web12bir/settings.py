@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'account',
     'field',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static-storage"),
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
