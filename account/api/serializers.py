@@ -28,7 +28,7 @@ class SepetModelSerializer(serializers.ModelSerializer):
         fields = [
             "user",
             "field",
-            # "selected",
+             "selected",
             # "created",
             # "pay",
 

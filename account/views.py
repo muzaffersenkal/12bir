@@ -7,6 +7,7 @@ from .forms import UserCreationForm
 from django.views.generic import ListView , TemplateView,DetailView
 from .mixins import LoggedInMixin
 from django.contrib.auth.models import User
+from field.models import Sepet
 
 class UserRegister(FormView):
     template_name ="registration/register.html"
@@ -24,3 +25,12 @@ class UserRegister(FormView):
 class ProfileView(LoggedInMixin,TemplateView):
 
     template_name = "profile.html"
+
+
+def sepetHeader(request):
+
+    user = request.user;
+    list = Sepet.objects.filter(user=user)
+
+
+    return { "sepetNumber":list.count}

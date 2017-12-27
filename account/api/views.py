@@ -22,5 +22,10 @@ class SepetCreateAPIView(generics.CreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user,field=Field.objects.first())
+        _ = serializer.save(user=self.request.user,field=Field.objects.first())
+        return Response(_)
+
+    
+    def dispatch(self, request, *args, **kwargs):
+        return super(SepetCreateAPIView, self).dispatch(request, *args, **kwargs)
 

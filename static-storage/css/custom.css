@@ -2,3 +2,207 @@
  * Title:   Custom Style File
  * Author:  http://themeforest.net/user/soaptheme 
  */
+
+
+.video-overlay {
+    background-image: url('../images/overlay.png');
+        background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    visibility: inherit;
+    opacity: 1;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+
+/* ----------------------------
+   single popup styles
+   ----------------------------*/
+
+.overlay {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   background: rgba(0, 0, 0, 0.6);
+   display: none;
+   z-index: 9998
+}
+
+.popup button {
+   display: inline-block;
+   min-width: 200px;
+   height: 60px;
+   line-height: 60px;
+   border: none;
+   background: #69B1A9;
+   color: #fff;
+   font-size: 15px;
+   letter-spacing: 1px;
+   cursor: pointer;
+   text-transform: uppercase;
+   transition: all .3s
+}
+.popup button.main-button {
+   margin-top: 10vh;
+   position: relative;
+   font-size: 17px;
+   font-weight: 700;
+   margin-left: 50px;
+   margin-bottom: 100px;
+}
+   .popup  button:hover {
+      opacity: .9;
+   }
+   .popup  button.main-button::before {
+      content: url(https://res.cloudinary.com/http-mohamdhasan-tk/image/upload/v1456482398/modal_poh7t7.png);}
+.popup {
+   background: #E5DDCB;
+   width: 400px;
+   text-align: center;
+   position: fixed;
+   display: none;
+   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2), -1px 0 4px rgba(0, 0, 0, 0.2);
+   z-index: 9999
+}
+.popup ul li {
+   display: inline-block;
+   width: 50%;
+    float:left;
+}
+.popup p {     font-size: 18px;
+    color: #555;
+    padding: 40px;}
+.popup ul li button {
+   width: 100%;
+   border-radius: 0;
+}
+ul li:first-of-type button {
+   background: #A7C5BD;
+}
+ul li:last-of-type button {
+   background: #AAB3AB;
+}
+
+
+/* first style */
+.popup.one {
+   top: calc(50vh - 150px);
+   left: calc(50vw - 200px);
+   -webkit-transform: scale(0);
+   transform: scale(0);
+   opacity: 0;
+   transition: all .7s cubic-bezier(0.845, -0.265, 0.190, 1.280);
+}
+   .popup.oneOpen {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1
+   }
+
+
+/* Seconed style */
+.popup.two {
+   top: calc(50vh - 150px);
+   left: -400px;
+   transition: all .6s cubic-bezier(0.845, -0.265, 0.190, 1.280);
+}
+.popup.twoOpen {
+   top: calc(50vh - 150px);
+   left: calc(50vw - 200px);
+}
+
+
+/* Third style */
+.popup.three {
+   top: 0;
+   left: calc(50vw - 200px);
+   -webkit-transform-origin: top center;
+   transform-origin: top center;
+   -webkit-transform-style: preserve-3d;
+   transform-style: preserve-3d;
+   -webkit-transform: rotateX(-180deg);
+   transform: rotateX(-180deg);
+   transition: -webkit-transform .8s cubic-bezier(1.000, -0.365, 0.000, 1.370);
+   transition: transform .8s cubic-bezier(1.000, -0.365, 0.000, 1.370);
+   transition: transform .8s cubic-bezier(1.000, -0.365, 0.000, 1.370), -webkit-transform .8s cubic-bezier(1.000, -0.365, 0.000, 1.370);
+}
+   .popup.threeOpen {
+      -webkit-transform: rotateX(0);
+      transform: rotateX(0);
+   }
+
+
+
+/* Fourth style */
+.popup.four {
+   bottom: 0;
+   right: 0;
+   -webkit-transform-origin: bottom right;
+   transform-origin: bottom right;
+   -webkit-transform: scale(0);
+   transform: scale(0);
+   transition: all .5s cubic-bezier(0.700, -0.370, 0.300, 1.350);
+}
+   .popup.fourOpen {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+   }
+
+
+/* Fifth style */
+.popup.five {
+   bottom: 0;
+   left: 0;
+   -webkit-transform-origin: bottom left;
+   transform-origin: bottom left;
+   -webkit-transform: scale(0);
+   transform: scale(0);
+   transition: all .5s cubic-bezier(0.700, -0.370, 0.300, 1.350);
+}
+   .popup.fiveOpen {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+   }
+
+
+
+/* ----------------------------
+   mediaqueries
+   ----------------------------*/
+@media screen and (max-width: 480px) {
+
+   .popup {
+      width: 300px;
+   }
+   .popup.one, .popup.three {
+      left: calc(50vw - 160px);
+   }
+   .popup.one, .popup.two {
+      top: calc(50vh - 120px);
+   }
+   .popup.twoOpen {
+      left: calc(50vw - 150px);
+   }
+   .popup  button {
+      min-width: 125px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 14px;
+   }
+    .popup  button.main-button {
+      min-width: 170px;
+   }
+      .popup  button.main-button::before {
+         height: 50px;
+         padding: 6px 0;
+      }
+}
+

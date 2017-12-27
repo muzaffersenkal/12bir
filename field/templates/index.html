@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block scripts %}
     <script type="text/javascript">
         tjq(document).ready(function() {
@@ -23,31 +24,49 @@
 {% endblock %}
 {% block content %}
 
-        <div id="slideshow">
-            <div class="fullwidthbanner-container">
-                <div class="revolution-slider" style="height: 0; overflow: hidden;">
-                    <ul>    <!-- SLIDE  -->
-                        <!-- Slide1 -->
-                        <li data-transition="zoomin" data-slotamount="7" data-masterspeed="1500">
-                            <!-- MAIN IMAGE -->
-                            <img src="http://placehold.it/2080x646" alt="">
-                        </li>
+        <div id="slideshow" >
 
-                        <!-- Slide2 -->
-                        <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500">
-                            <!-- MAIN IMAGE -->
-                            <img src="http://placehold.it/2080x646" alt="">
-                        </li>
+         <div class="flexslider fullwidthbanner-container">
 
-                        <!-- Slide3 -->
-                        <li data-transition="slidedown" data-slotamount="7" data-masterspeed="1500">
+
+
+
                             <!-- MAIN IMAGE -->
-                            <img src="http://placehold.it/2080x646" alt="">
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+                         <div class="video-overlay"></div>
+
+                            <video autoplay>
+                      <source src="{% static 'bgvideo.mp4' %}" type="video/mp4" />
+
+                    Tarayıcınız video etiketini desteklemiyor.
+                    </video>
+
+
+
+         </div>
+{#            <div class="fullwidthbanner-container">#}
+{#                <div class="revolution-slider" style="height: 0; overflow: hidden;">#}
+{#                    <ul>    <!-- SLIDE  -->#}
+{#                        <!-- Slide1 -->#}
+{#                        <li data-transition="zoomin" data-slotamount="7" data-masterspeed="1500">#}
+{#                            <!-- MAIN IMAGE -->#}
+{#                            <img src="http://placehold.it/2080x646" alt="">#}
+{#                        </li>#}
+{##}
+{#                        <!-- Slide2 -->#}
+{#                        <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500">#}
+{#                            <!-- MAIN IMAGE -->#}
+{#                            <img src="http://placehold.it/2080x646" alt="">#}
+{#                        </li>#}
+{##}
+{#                        <!-- Slide3 -->#}
+{#                        <li data-transition="slidedown" data-slotamount="7" data-masterspeed="1500">#}
+{#                            <!-- MAIN IMAGE -->#}
+{#                            <img src="http://placehold.it/2080x646" alt="">#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
         <section id="content">
             <div class="search-box-wrapper">
                 <div class="search-box container">
