@@ -6,9 +6,6 @@ from .models import Field,Review
 import itertools
 from django.template.defaultfilters import slugify
 
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit,HTML
-
 
 class AddForm(forms.ModelForm):
 
@@ -32,7 +29,7 @@ class AddForm(forms.ModelForm):
             'city',
         )
 
-class ReviewModelForm(forms.Form):
+class ReviewModelForm(forms.ModelForm):
     RATING_CHOICES = [
         ('0', '0- Çok Kötü'),
         ('1', '1- İdare Eder'),
@@ -41,8 +38,10 @@ class ReviewModelForm(forms.Form):
         ('4', '4 - Çok İyi'),
         ('5', '5 - Mükemmel'),
     ]
-    review = forms.CharField(label='',widget=forms.Textarea(attrs={'placeholder': 'Yorumunuz','class':'input-text full-width'}))
-    title = forms.CharField(label='',widget=forms.TextInput(attrs={'placeholder': 'Konu Başlığı Giriniz','class':'input-text full-width'}))
+    title = forms.CharField(label='', widget=forms.TextInput(
+        attrs={'placeholder': 'Konu Başlığı Giriniz', 'class': 'input-text full-width'}))
+
+    review = forms.CharField(label='Başlık',widget=forms.Textarea(attrs={'placeholder': 'Yorumunuz','class':'input-text full-width'}))
     rating = forms.CharField(label='Puanlama ', widget=forms.Select(attrs={"class":"selector"},choices=RATING_CHOICES))
 
     class Meta:
@@ -54,19 +53,8 @@ class ReviewModelForm(forms.Form):
 
         ]
 
-    def __init__(self, *args, **kwargs):
-        self.helper = FormHelper()
-        self.helper.layout = Layout(
-            Fieldset(
 
-                'review',
-                HTML("""
-                   <p>We use notes to get better, <strong>please help us {{ username }}</strong></p>
-               """),
-                'title'
-            )
-        )
-        super(ReviewModelForm, self).__init__(*args, **kwargs)
+
 
 
 

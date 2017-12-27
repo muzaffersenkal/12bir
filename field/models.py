@@ -47,7 +47,7 @@ class Field(models.Model):
 class Review(models.Model):
     title = models.CharField(max_length=30)
     review = models.TextField()
-    rating = models.IntegerField()
+    rating = models.IntegerField(null=True, blank=True)
     post = models.ForeignKey('field',on_delete=models.CASCADE,related_name="review")
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
 

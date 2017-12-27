@@ -29,7 +29,7 @@ urlpatterns = [
      url(r'^api/sepet/', include('account.api.urls', namespace="sepet-api")),
     url(r'^list/$',ListView.as_view(),name="list"),
     url(r'^sepetim/$',SepetView.as_view(),name="sepetim"),
-    url(r'^accounts/profile$',ProfileView.as_view(),name="profile"),
+    url(r'^accounts/profile/$',ProfileView.as_view(),name="profile"),
     url(r'^register/$',UserRegister.as_view(),name="register"),
     url('accounts/', include('django.contrib.auth.urls')),
     url(r'^list/(?P<slug>[-\w]+)/$',DetailView.as_view(),name="detail"),

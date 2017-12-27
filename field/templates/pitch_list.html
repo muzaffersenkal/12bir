@@ -8,12 +8,12 @@
                 max: 1000,
                 values: [ 100, 800 ],
                 slide: function( event, ui ) {
-                    tjq(".min-price-label").html( "$" + ui.values[ 0 ]);
-                    tjq(".max-price-label").html( "$" + ui.values[ 1 ]);
+                    tjq(".min-price-label").html( "₺" + ui.values[ 0 ]);
+                    tjq(".max-price-label").html( "₺" + ui.values[ 1 ]);
                 }
             });
-            tjq(".min-price-label").html( "$" + tjq("#price-range").slider( "values", 0 ));
-            tjq(".max-price-label").html( "$" + tjq("#price-range").slider( "values", 1 ));
+            tjq(".min-price-label").html( "₺" + tjq("#price-range").slider( "values", 0 ));
+            tjq(".max-price-label").html( "₺" + tjq("#price-range").slider( "values", 1 ));
 
             tjq("#rating").slider({
                 range: "min",
@@ -72,7 +72,7 @@
             "                                                <p class=\"description\">\""+fieldValue.desc+"\"</p>\n" +
             "                                                <div class=\"action\">\n" +
             "                                                    <a class=\"button btn-small\" href=\""+fieldUrl+"\">İncele</a>\n" +
-            "                                                    <a class=\"button btn-small yellow popup-map\" href=\"#\" data-box=\"48.856614, 2.352222\">VIEW ON MAP</a>\n" +
+            "                                                    <a class=\"button btn-small yellow popup-map\" href=\"#\" data-box=\"48.856614, 2.352222\">Haritada Göster</a>\n" +
             "                                                </div>\n" +
             "                                            </div>\n" +
             "                                        </article>\n" +
@@ -303,11 +303,11 @@
   <div class="page-title-container">
             <div class="container">
                 <div class="page-title pull-left">
-                    <h2 class="entry-title">Hotel Search Results</h2>
+                    <h2 class="entry-title">Tüm Halısahalar</h2>
                 </div>
                 <ul class="breadcrumbs pull-right">
-                    <li><a href="#">HOME</a></li>
-                    <li class="active">Hotel Search Results</li>
+                    <li><a href="#">Anasayfa</a></li>
+                    <li class="active">Halısaha listesi</li>
                 </ul>
             </div>
         </div>
@@ -320,7 +320,7 @@
                             <div class="toggle-container filters-container">
                                 <div class="panel style1 arrow-right">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="#price-filter" class="collapsed">Price</a>
+                                        <a data-toggle="collapse" href="#price-filter" class="collapsed">Fiyat</a>
                                     </h4>
                                     <div id="price-filter" class="panel-collapse collapse">
                                         <div class="panel-content">
@@ -335,102 +335,58 @@
 
                                 <div class="panel style1 arrow-right">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="#rating-filter" class="collapsed">User Rating</a>
+                                        <a data-toggle="collapse" href="#rating-filter" class="collapsed">Kullanıcı Görüşleri</a>
                                     </h4>
                                     <div id="rating-filter" class="panel-collapse collapse">
                                         <div class="panel-content">
                                             <div id="rating" class="five-stars-container editable-rating"></div>
                                             <br />
-                                            <small>2458 REVIEWS</small>
+                                            <small>2458 Görüş</small>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="panel style1 arrow-right">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="#accomodation-type-filter" class="collapsed">Accomodation Type</a>
+                                        <a data-toggle="collapse" href="#accomodation-type-filter" class="collapsed">İmkanlar</a>
                                     </h4>
                                     <div id="accomodation-type-filter" class="panel-collapse collapse">
                                         <div class="panel-content">
                                             <ul class="check-square filters-option">
-                                                <li><a href="#">All<small>(722)</small></a></li>
-                                                <li><a href="#">Hotel<small>(982)</small></a></li>
-                                                <li><a href="#">Resort<small>(127)</small></a></li>
-                                                <li class="active"><a href="#">Bed &amp; Breakfast<small>(222)</small></a></li>
-                                                <li><a href="#">Condo<small>(158)</small></a></li>
-                                                <li><a href="#">Residence<small>(439)</small></a></li>
-                                                <li><a href="#">Guest House<small>(52)</small></a></li>
+                                                <li><a href="#">Hepsi<small>(722)</small></a></li>
+                                                <li><a href="#">Servis<small>(982)</small></a></li>
+                                                <li><a href="#">Açık<small>(127)</small></a></li>
+                                                <li class="active"><a href="#">Kapalı<small>(222)</small></a></li>
+                                                <li><a href="#">Duş<small>(158)</small></a></li>
+                                                <li><a href="#">Ekipman<small>(439)</small></a></li>
+                                                <li><a href="#">İkram<small>(52)</small></a></li>
                                             </ul>
-                                            <a class="button btn-mini">MORE</a>
+                                            <a class="button btn-mini">Daha Fazla</a>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="panel style1 arrow-right">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="#amenities-filter" class="collapsed">Amenities</a>
-                                    </h4>
-                                    <div id="amenities-filter" class="panel-collapse collapse">
-                                        <div class="panel-content">
-                                            <ul class="check-square filters-option">
-                                                <li><a href="#">Bathroom<small>(722)</small></a></li>
-                                                <li><a href="#">Cable tv<small>(982)</small></a></li>
-                                                <li class="active"><a href="#">air conditioning<small>(127)</small></a></li>
-                                                <li class="active"><a href="#">mini bar<small>(222)</small></a></li>
-                                                <li><a href="#">wi - fi<small>(158)</small></a></li>
-                                                <li><a href="#">pets allowed<small>(439)</small></a></li>
-                                                <li><a href="#">room service<small>(52)</small></a></li>
-                                            </ul>
-                                            <a class="button btn-mini">MORE</a>
-                                        </div>
-                                    </div>
-                                </div>
+
 
                                 <div class="panel style1 arrow-right">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="#language-filter" class="collapsed">Host Language</a>
-                                    </h4>
-                                    <div id="language-filter" class="panel-collapse collapse">
-                                        <div class="panel-content">
-                                            <ul class="check-square filters-option">
-                                                <li><a href="#">English<small>(722)</small></a></li>
-                                                <li><a href="#">Español<small>(982)</small></a></li>
-                                                <li class="active"><a href="#">Português<small>(127)</small></a></li>
-                                                <li class="active"><a href="#">Français<small>(222)</small></a></li>
-                                                <li><a href="#">Suomi<small>(158)</small></a></li>
-                                                <li><a href="#">Italiano<small>(439)</small></a></li>
-                                                <li><a href="#">Sign Language<small>(52)</small></a></li>
-                                            </ul>
-                                            <a class="button btn-mini">MORE</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="panel style1 arrow-right">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="#modify-search-panel" class="collapsed">Modify Search</a>
+                                        <a data-toggle="collapse" href="#modify-search-panel" class="collapsed">Detaylı Arama</a>
                                     </h4>
                                     <div id="modify-search-panel" class="panel-collapse collapse">
                                         <div class="panel-content">
                                             <form method="post">
                                                 <div class="form-group">
-                                                    <label>destination</label>
-                                                    <input type="text" class="input-text full-width" placeholder="" value="Paris" />
+                                                    <label>Şehir</label>
+                                                    <input type="text" class="input-text full-width" placeholder="" value="Muğla" />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>check in</label>
+                                                    <label>Tarih</label>
                                                     <div class="datepicker-wrap">
                                                         <input type="text" name="date_from" class="input-text full-width" placeholder="mm/dd/yy" />
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label>check out</label>
-                                                    <div class="datepicker-wrap">
-                                                        <input type="text" name="date_to" class="input-text full-width" placeholder="mm/dd/yy" />
-                                                    </div>
-                                                </div>
                                                 <br />
-                                                <button id="search-again" class="btn-medium icon-check uppercase full-width">search again</button>
+                                                <button id="search-again" class="btn-medium icon-check uppercase full-width">Detaylı Ara</button>
                                             </form>
                                         </div>
                                     </div>
@@ -439,13 +395,13 @@
                         </div>
                         <div class="col-sm-8 col-md-9">
                             <div class="sort-by-section clearfix">
-                                <h4 class="sort-by-title block-sm">Sort results by:</h4>
+                                <h4 class="sort-by-title block-sm">Sırala:</h4>
                                 <ul class="sort-bar clearfix block-sm">
-                                    <li class="sort-by-name"><a class="sort-by-container" href="#"><span>name</span></a></li>
-                                    <li class="sort-by-price active"><a class="sort-by-container" href="#"><span>price</span></a></li>
+                                    <li class="sort-by-name"><a class="sort-by-container" href="#"><span>isim</span></a></li>
+                                    <li class="sort-by-price active"><a class="sort-by-container" href="#"><span>fiyat</span></a></li>
                                     <li class="clearer visible-sms"></li>
-                                    <li class="sort-by-rating"><a class="sort-by-container" href="#"><span>rating</span></a></li>
-                                    <li class="sort-by-popularity"><a class="sort-by-container" href="#"><span>popularity</span></a></li>
+                                    <li class="sort-by-rating"><a class="sort-by-container" href="#"><span>puan</span></a></li>
+                                    <li class="sort-by-popularity"><a class="sort-by-container" href="#"><span>popülerlik</span></a></li>
                                 </ul>
 
                                 <ul class="swap-tiles clearfix block-sm">
