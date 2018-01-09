@@ -1,0 +1,23 @@
+{% load crispy_forms_tags %}
+
+<form class="review-form" {% if id %} id="{{ id }}" {% endif %}  method="POST" action="{% if action_url %} {{ action_url}} {% endif %}">
+    {% csrf_token %}
+
+
+    {{  form|crispy  }}
+   <div class="form-group">
+                                            <h4 class="title">Arkadaşlarınla Paylaş <small>(Optional)</small></h4>
+                                            <p>Görüşlerini sosyal medyadaki arkadaşlarınla paylaş</p>
+                                            <ul class="social-icons icon-circle clearfix">
+                                                <li class="twitter"><a title="Twitter" href="#" data-toggle="tooltip"><i class="soap-icon-twitter"></i></a></li>
+                                                <li class="facebook"><a title="Facebook" href="#" data-toggle="tooltip"><i class="soap-icon-facebook"></i></a></li>
+                                                <li class="googleplus"><a title="GooglePlus" href="#" data-toggle="tooltip"><i class="soap-icon-googleplus"></i></a></li>
+                                                <li class="pinterest"><a title="Pinterest" href="#" data-toggle="tooltip"><i class="soap-icon-pinterest"></i></a></li>
+                                            </ul>
+                                        </div>
+
+
+       <div class="form-group col-md-5 no-float no-padding no-margin">
+                                            <button type="submit" class="btn-large full-width">Yorumu Gönder</button>
+                                        </div>
+</form>

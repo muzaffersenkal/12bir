@@ -54,10 +54,11 @@
                             });
             }else{
              var formData = secilen_ay+"/"+secilen_gun+"/"+secilen_saat
+              var fieldSlug= "{{ object.slug }}"
               $.ajax({
                 url : "/api/sepet/create/",
 
-                data :{  csrfmiddlewaretoken: '{{ csrf_token }}',"selected":formData },
+                data :{  csrfmiddlewaretoken: '{{ csrf_token }}',"selected":formData,"fieldSlug":fieldSlug },
                 type: "POST",
 
 

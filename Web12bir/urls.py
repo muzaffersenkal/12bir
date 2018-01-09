@@ -17,7 +17,7 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
-from field.views import IndexView,ListView,DetailView
+from field.views import IndexView,ListView,DetailView,ReportView
 from account.views import UserRegister,ProfileView,SepetView
 
 
@@ -25,6 +25,7 @@ from account.views import UserRegister,ProfileView,SepetView
 
 urlpatterns = [
     url(r'^$',IndexView.as_view(),name="index"),
+    url(r'^report/$',ReportView.as_view(),name="report"),
      url(r'^api/field/', include('field.api.urls', namespace="field-api")),
      url(r'^api/sepet/', include('account.api.urls', namespace="sepet-api")),
     url(r'^list/$',ListView.as_view(),name="list"),

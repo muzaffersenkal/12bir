@@ -9,6 +9,10 @@ class IndexView(TemplateView):
 
     template_name = "index.html"
 
+class ReportView(TemplateView):
+
+    template_name = "report.html"
+
 
 class ListView(ListView):
 
