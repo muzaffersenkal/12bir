@@ -5,19 +5,119 @@
   <div class="page-title-container">
             <div class="container">
                 <div class="page-title pull-left">
-                    <h2 class="entry-title">Hotel Booking</h2>
+                    <h2 class="entry-title">Sepetim</h2>
                 </div>
                 <ul class="breadcrumbs pull-right">
-                    <li><a href="#">HOME</a></li>
-                    <li class="active">Hotel Booking</li>
+                    <li><a href="#">Anasayfa</a></li>
+                    <li class="active">Sepetim</li>
                 </ul>
             </div>
         </div>
 
     <section id="content" class="gray-area">
             <div class="container">
+                      <div class="col-lg-9 listing-style3 flight">
+
+                        </div>
+
+
                 <div class="row">
-                    <div id="main" class="col-sms-6 col-sm-8 col-md-9">
+                    <div id="main" class="col-sms-6 col-sm-8 col-md-9 listing-style3 flight">
+
+                            {% for object in sepet_list %}
+                             <article class="box">
+                                <figure class="col-xs-3 col-sm-2">
+                                    <span><img alt="" src="http://placehold.it/270x160"></span>
+                                </figure>
+                                <div class="details col-xs-9 col-sm-10">
+                                    <div class="details-wrapper">
+                                        <div class="first-row">
+                                            <div>
+                                                <h4 class="box-title">{{ object.field.name }}<small>Oneway flight</small></h4>
+                                                <a class="button btn-mini yellow">11.00-12.00</a>
+                                                <div class="amenities">
+                                                    <i class="soap-icon-wifi circle"></i>
+                                                    <i class="soap-icon-entertainment circle"></i>
+                                                    <i class="soap-icon-fork circle"></i>
+                                                    <i class="soap-icon-suitcase circle"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span class="price"><small>AVG/PERSON</small>₺ {{ object.field.price }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="second-row">
+                                            <div class="time">
+                                                <div class="take-off col-sm-4">
+                                                    <div class="icon"><i class="soap-icon-plane-right yellow-color"></i></div>
+                                                    <div>
+                                                        <span class="skin-color">Take off</span><br />Wed Nov 13, 2013 7:50 Am
+                                                    </div>
+                                                </div>
+                                                <div class="landing col-sm-4">
+                                                    <div class="icon"><i class="soap-icon-plane-right yellow-color"></i></div>
+                                                    <div>
+                                                        <span class="skin-color">landing</span><br />Wed Nov 13, 2013 9:20 am
+                                                    </div>
+                                                </div>
+                                                <div class="total-time col-sm-4">
+                                                    <div class="icon"><i class="soap-icon-clock yellow-color"></i></div>
+                                                    <div>
+                                                        <span class="skin-color">total time</span><br />13 Hour, 40 minutes
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="action">
+                                                <form method="POST" action="{% url "sepet-delete" object.id %}">
+                                                    {% csrf_token %}
+                                                <button type="submit" class="button btn-small full-width">SEPETTEN ÇIKAR</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            {% endfor %}
+                        <div class="row">
+                            <form action="">
+                                {% for object in address_list %}
+
+                                    <div class="col-sm-6">
+                                <div class="icon-box style5 box" id="hotel-description">
+
+                                    <i class="soap-icon-user"></i>
+                                    <div class="description">
+                                        <h4><a href="#">{{ object.title }} </a></h4>
+
+                                    </div>
+
+                                     <div class="features table-cell" >
+                                              <ul class="adres-form-bilgi">
+                                                <li><label>Ad-Soyad:</label>{{ object.firstName }} {{ object.lastName }}</li>
+                                                <li><label>Email:</label>{{ object.email}}</li>
+
+                                                <li><label>Telefon:</label>{{ object.phone_number}}</li>
+                                                <li><label>Lokasyon:</label>{{ object.city}}  {{ object.ilce}}</li>
+                                                <li><label>Adres:</label>{{ object.address}}</li>
+
+
+
+                                            </ul>
+                                        </div>
+                                    <div class="description" >
+
+                                        <input type="radio" name="gender" value="male">
+                                        <h3 class="box-title">Adresi Seç   > </h3>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                                {% endfor %}
+</form></div>
+
                         <div class="booking-section travelo-box">
 
                             <form class="booking-form">
