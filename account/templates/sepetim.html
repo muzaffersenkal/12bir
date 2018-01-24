@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load crispy_forms_tags %}
 
 {% block content %}
   <div class="page-title-container">
@@ -120,170 +120,49 @@
 
                         <div class="booking-section travelo-box">
 
-                            <form class="booking-form">
+                            <form class="booking-form" method="POST">
                                 <div class="person-information">
-                                    <h2>Your Personal Information</h2>
+                                    <h2>Yeni Adres Ekle</h2>
+
+
+                     {% crispy form %}
+
+                                 <hr />
                                     <div class="form-group row">
-                                        <div class="col-sm-6 col-md-5">
-                                            <label>first name</label>
-                                            <input type="text" class="input-text full-width" value="" placeholder="" />
-                                        </div>
-                                        <div class="col-sm-6 col-md-5">
-                                            <label>last name</label>
-                                            <input type="text" class="input-text full-width" value="" placeholder="" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 col-md-5">
-                                            <label>email address</label>
-                                            <input type="text" class="input-text full-width" value="" placeholder="" />
-                                        </div>
-                                        <div class="col-sm-6 col-md-5">
-                                            <label>Verify E-mail Address</label>
-                                            <input type="text" class="input-text full-width" value="" placeholder="" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 col-md-5">
-                                            <label>Country code</label>
-                                            <div class="selector">
-                                                <select class="full-width">
-                                                    <option>United Kingdom (+44)</option>
-                                                    <option>United States (+1)</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-5">
-                                            <label>Phone number</label>
-                                            <input type="text" class="input-text full-width" value="" placeholder="" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> I want to receive <span class="skin-color">Travelo</span> promotional offers in the future
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr />
-                                <div class="card-information">
-                                    <h2>Your Card Information</h2>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 col-md-5">
-                                            <label>Credit Card Type</label>
-                                            <div class="selector">
-                                                <select class="full-width">
-                                                    <option>select a card</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-5">
-                                            <label>Card holder name</label>
-                                            <input type="text" class="input-text full-width" value="" placeholder="" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 col-md-5">
-                                            <label>Card number</label>
-                                            <input type="text" class="input-text full-width" value="" placeholder="" />
-                                        </div>
-                                        <div class="col-sm-6 col-md-5">
-                                            <label>Card identification number</label>
-                                            <input type="text" class="input-text full-width" value="" placeholder="" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 col-md-5">
-                                            <label>Expiration Date</label>
-                                            <div class="constant-column-2">
-                                                <div class="selector">
-                                                    <select class="full-width">
-                                                        <option>month</option>
-                                                    </select>
-                                                </div>
-                                                <div class="selector">
-                                                    <select class="full-width">
-                                                        <option>year</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3 col-md-2">
-                                            <label>billing zip code</label>
-                                            <input type="text" class="input-text full-width" value="" placeholder="" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr />
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> By continuing, you agree to the <a href="#"><span class="skin-color">Terms and Conditions</span></a>.
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
                                     <div class="col-sm-6 col-md-5">
-                                        <button type="submit" class="full-width btn-large">CONFIRM BOOKING</button>
+                                        <button type="submit" class="full-width btn-large">YENİ ADRES EKLE</button>
                                     </div>
                                 </div>
+                                </div>
+
+
+
+
+
                             </form>
                         </div>
                     </div>
                     <div class="sidebar col-sms-6 col-sm-4 col-md-3">
                         <div class="booking-details travelo-box">
-                            <h4>Booking Details</h4>
-                            <article class="image-box hotel listing-style1">
-                                <figure class="clearfix">
-                                    <a href="hotel-detailed.html" class="hover-effect middle-block"><img class="middle-item" width="270" height="160" alt="" src="http://placehold.it/270x160"></a>
-                                    <div class="travel-title">
-                                        <h5 class="box-title">Hotel Hilton<small>Paris france</small></h5>
-                                        <a href="hotel-detailed.html" class="button">EDIT</a>
-                                    </div>
-                                </figure>
-                                <div class="details">
-                                    <div class="feedback">
-                                        <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="4 stars"><span style="width: 80%;" class="five-stars"></span></div>
-                                        <span class="review">270 reviews</span>
-                                    </div>
-                                    <div class="constant-column-3 timing clearfix">
-                                        <div class="check-in">
-                                            <label>Check in</label>
-                                            <span>NOV 30, 2013<br />11 AM</span>
-                                        </div>
-                                        <div class="duration text-center">
-                                            <i class="soap-icon-clock"></i>
-                                            <span>2 Nights</span>
-                                        </div>
-                                        <div class="check-out">
-                                            <label>Check out</label>
-                                            <span>DEC 02, 2013<br />2 PM</span>
-                                        </div>
-                                    </div>
-                                    <div class="guest">
-                                        <small class="uppercase">1 Standard family room for <span class="skin-color">3 Persons</span></small>
-                                    </div>
-                                </div>
-                            </article>
 
-                            <h4>Other Details</h4>
+                            <h4>Sepettekiler</h4>
                             <dl class="other-details">
-                                <dt class="feature">room Type:</dt><dd class="value">Standard Family</dd>
-                                <dt class="feature">per Room price:</dt><dd class="value">$121</dd>
-                                <dt class="feature">2 night Stay:</dt><dd class="value">$242</dd>
-                                <dt class="feature">taxes and fees:</dt><dd class="value">$10</dd>
-                                <dt class="total-price">Total Price</dt><dd class="total-price-value">$252</dd>
+                                 {% for object in sepet_list %}
+                                <dt class="feature">{{ object.field.name }}:</dt><dd class="value">₺ {{ object.field.price }}</dd>
+                                {% endfor %}
+                                <dt class="total-price">Toplam </dt><dd class="total-price-value">₺ {{ totalPrice }}</dd>
                             </dl>
+
+                            <a class="button yellow full-width uppercase btn-small sepete-ekle">sepete ekle</a>
                         </div>
 
-                        <div class="travelo-box contact-box">
-                            <h4>Need Travelo Help?</h4>
-                            <p>We would be more than happy to help you. Our team advisor are 24/7 at your service to help you.</p>
+                       <div class="travelo-box contact-box">
+                            <h4>YARDIMA MI İHTİYACINIZ VAR</h4>
+                            <p>Sizleri daha memnun edebilmek için yardım servisimiz 7/24 aktiftir</p>
                             <address class="contact-details">
-                                <span class="contact-phone"><i class="soap-icon-phone"></i> 1-800-123-HELLO</span>
+                                <span class="contact-phone"><i class="soap-icon-phone"></i> 1-800-123</span>
                                 <br>
-                                <a class="contact-email" href="#">help@travelo.com</a>
+                                <a class="contact-email" href="#">yardim@12bir.com</a>
                             </address>
                         </div>
                     </div>
