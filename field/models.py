@@ -68,9 +68,10 @@ class Sepet(models.Model):
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
     field = models.ForeignKey('Field',on_delete=models.CASCADE,related_name="fieldorder")
+    address = models.ForeignKey('Address',on_delete=models.CASCADE,related_name="addressOrder")
     selected = models.CharField(max_length=40)
     created = models.DateTimeField(auto_now_add=True)
-    desc = models.CharField(max_length=40)
+    desc = models.CharField(max_length=40,blank=True)
 
     def __str__(self):
         return self.field.name+" => "+self.user.username

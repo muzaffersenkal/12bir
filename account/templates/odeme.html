@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="page-title-container">
+            <div class="container">
+                <div class="page-title pull-left">
+                    <h2 class="entry-title">Ödeme Yap</h2>
+                </div>
+                <ul class="breadcrumbs pull-right">
+                    <li><a href="#">Anasayfa</a></li>
+                    <li><a href="#">Sepetim</a></li>
+                    <li class="active">Ödeme</li>
+                </ul>
+            </div>
+        </div>
+
+    <section id="content" class="gray-area">
+            <div class="container">
+                      <div class="col-lg-9 listing-style3 flight">
+
+                        </div>
+
+
+                <div class="row">
+                    <div id="main" class="col-sms-6 col-sm-8 col-md-9 listing-style3 flight">
+
+
+
+
+                        <div class="booking-section travelo-box">
+
+                            <form class="booking-form" method="POST">
+                                <div class="person-information">
+                                    <h2>Ödeme Yap</h2>
+
+
+                                {% crispy form %}
+
+                                 <hr />
+                                    <div class="form-group row">
+                                    <div class="col-sm-6 col-md-5">
+                                        <button type="submit" class="full-width btn-large">ÖDEME YAP</button>
+                                    </div>
+                                </div>
+                                </div>
+
+
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="sidebar col-sms-6 col-sm-4 col-md-3">
+                        <div class="booking-details travelo-box">
+
+                            <h4>Sepettekiler</h4>
+                            <dl class="other-details">
+                                 {% for object in sepet_list %}
+                                <dt class="feature">{{ object.field.name }}:</dt><dd class="value">₺ {{ object.field.price }}</dd>
+                                {% endfor %}
+                                <dt class="total-price">Toplam </dt><dd class="total-price-value">₺ {{ totalPrice }}</dd>
+                            </dl>
+
+                        </div>
+
+                       <div class="travelo-box contact-box">
+                            <h4>YARDIMA MI İHTİYACINIZ VAR</h4>
+                            <p>Sizleri daha memnun edebilmek için yardım servisimiz 7/24 aktiftir</p>
+                            <address class="contact-details">
+                                <span class="contact-phone"><i class="soap-icon-phone"></i> 1-800-123</span>
+                                <br>
+                                <a class="contact-email" href="#">yardim@12bir.com</a>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{% endblock %}

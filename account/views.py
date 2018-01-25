@@ -8,9 +8,9 @@ from .forms import UserCreationForm
 from django.views.generic import ListView , TemplateView,DetailView,DeleteView,CreateView
 from .mixins import LoggedInMixin
 from django.contrib.auth.models import User
-from field.models import Sepet,Address
+from field.models import Sepet,Address,Order
 from django.core.urlresolvers import reverse_lazy
-from .forms import AddressForm
+from .forms import AddressForm,OrderForm
 
 class UserRegister(FormView):
     template_name ="registration/register.html"
@@ -81,7 +81,30 @@ class AddressAddView(CreateView):
     model = Address
 
 
+class PayView(CreateView,ListView,FormView):
 
+    template_name = "odeme.html"
+    model= Sepet
+    form_class = OrderForm
+    context_object_name = "sepet_list"
+    success_url = reverse_lazy('sepetim')
+
+    def get_queryset(self):
+        return Sepet.objects.filter(user=self.request.user)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(PayView, self).get_context_data(*args, **kwargs)
+
+
+        totalPrice = 0;
+        sepet_list = self.get_queryset()
+        for sepet in sepet_list:
+            totalPrice += sepet.field.price
+
+        context['totalPrice'] = totalPrice
+
+
+        return context
 
 def sepetHeader(request):
 

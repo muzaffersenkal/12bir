@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from field.views import IndexView,ListView,DetailView,ReportView
-from account.views import UserRegister,ProfileView,SepetView,SepetDeleteView,AddressAddView
+from account.views import UserRegister,ProfileView,SepetView,SepetDeleteView,AddressAddView,PayView
 
 
 
@@ -30,6 +30,7 @@ urlpatterns = [
      url(r'^api/sepet/', include('account.api.urls', namespace="sepet-api")),
     url(r'^list/$',ListView.as_view(),name="list"),
     url(r'^sepetim/$',SepetView.as_view(),name="sepetim"),
+    url(r'^sepetim/odeme$',PayView.as_view(),name="pay"),
     url(r'^sepetim/delete/(?P<pk>\d+)$', SepetDeleteView.as_view(), name='sepet-delete'),
     url(r'^adres/ekle/$', AddressAddView.as_view(), name='adres-ekle'),
     url(r'^accounts/profile/$',ProfileView.as_view(),name="profile"),
